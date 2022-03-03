@@ -8,17 +8,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <router-link to="/brazil" class="nav-link">Brazil</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/hawaii" class="nav-link">Hawaii</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/jamaica" class="nav-link">Jamaica</router-link>
-        </li>
-        <li class="nav-item">
-          <router-link to="/panama" class="nav-link">Panama</router-link>
+        <li class="nav-item"
+        v-for="destination in destinations" 
+        :key="destination.id"
+        >
+          <router-link 
+          :to="{name:'destination',params:{id:destination.id}}"
+          class="nav-link"
+          >{{destination.name}}
+          </router-link>
         </li>
       </ul>
     </div>
@@ -28,9 +26,14 @@
 </template>
 
 <script>
+import SourceData from '@/data.json'
 export default {
   name: 'Header',
- 
+  data(){
+    return{
+      destinations:SourceData.destinations
+    }
+  }
 }
 </script>
 

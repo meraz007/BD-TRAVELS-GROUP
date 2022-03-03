@@ -7,7 +7,7 @@
             <div class="col-md-3" 
             v-for="destination in destinations" 
             :key="destination.id">
-            <router-link :to="destination.slug">
+            <router-link :to="{name:'destination',params:{id:destination.id}}">
               <div class="card border-0">
                 <div class="card-body">
                   <h5 class="card-title">{{destination.name}}</h5>
