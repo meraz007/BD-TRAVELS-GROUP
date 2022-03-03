@@ -1,18 +1,42 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <div class="row justify-content-md-center">
+        <div class="col-md-8">
+          <h2 class="my-5">All Destination</h2>
+          <div class="row">
+            <div class="col-md-3" 
+            v-for="destination in destinations" 
+            :key="destination.id">
+            <router-link :to="destination.slug">
+              <div class="card border-0">
+                <div class="card-body">
+                  <h5 class="card-title">{{destination.name}}</h5>
+                  <img :src="`/images/${destination.image}`" :alt="destination.name">
+                </div>
+              </div>
+            </router-link>
+            </div>
+          </div>
+        </div>
+      </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+
+import SourceData from '@/data.json'
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  data(){
+    return{
+      destinations: SourceData.destinations
+    }
   }
 }
 </script>
+<style scoped>
+.card{
+  height: 200px;
+}
+</style>
