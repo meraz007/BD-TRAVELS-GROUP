@@ -36,7 +36,8 @@ export default {
 }
 </script>
 <style scoped>
-.card{
-  height: 200px;
+.card-body img {
+  max-width: 100%;
+  height: auto;
 }
 </style>
