@@ -14,11 +14,29 @@
             </div>
         </div>
     </div>
+    <div class="experence">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h3>All Experence in {{destination.name}}</h3>
+                <div class="row">
+                    <div class="col-md-3" v-for="experence in destination.experiences"
+                    :key="experence.slug">
+                    <Experence
+                    :experence="experence"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
 import SourceData from '@/data.json'
+import Experence from '../components/Experences.vue'
 export default {
+    components:{
+        Experence
+    },
   computed:{
     destinationId(){
         return parseInt(this.$route.params.id)
