@@ -1,18 +1,16 @@
 <template>
-    <router-link to="/">
-        <div class="card border-0">
-            <div class="card-body">
-                <h5 class="card-title">{{experence.name}}</h5>
-                <img :src="`/images/${experence.image}`" :alt="experence.name">
-            </div>
+    <div class="card border-0">
+        <div class="card-body">
+            <h5 class="card-title">{{experience.name}}</h5>
+            <img :src="`/images/${experience.image}`" :alt="experience.name">
         </div>
-    </router-link>
+    </div>
 </template>
 
 <script>
 export default {
     props:{
-        experence:{
+        experience:{
             type:Object,
             required:true
         }

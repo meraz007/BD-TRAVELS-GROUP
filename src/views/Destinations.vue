@@ -5,10 +5,11 @@
                 <div class="row">
                     <div class="col-md-6">
                         <h1>{{destination.name}}</h1>
+                        <GoBack />
                         <img class="img-fluid" :src="`/images/${destination.image}`" alt="">
                     </div>
                     <div class="col-md-6">
-                        <p>{{destination.description}}</p>
+                        <p>{{destination.description.slice(0,420)}}</p>
                     </div>
                 </div>
             </div>
@@ -19,12 +20,15 @@
             <div class="col-md-8">
                 <h3>All Experence in {{destination.name}}</h3>
                 <div class="row">
-                    <div class="col-md-3" v-for="experence in destination.experiences"
-                    :key="experence.slug">
+                    <div class="col-md-3" v-for="experience in destination.experiences"
+                    :key="experience.slug">
+                    <router-link :to="{name:'experience',params:{experienceSlug:experience.slug}}">
                     <Experence
-                    :experence="experence"/>
+                    :experience="experience"/>
+                    </router-link>
                     </div>
                 </div>
+                <router-view />
             </div>
         </div>
     </div>
@@ -33,9 +37,11 @@
 <script>
 import SourceData from '@/data.json'
 import Experence from '../components/Experences.vue'
+import GoBack from '../components/GoBack.vue'
 export default {
     components:{
-        Experence
+        Experence,
+        GoBack
     },
   computed:{
     destinationId(){
