@@ -1,20 +1,22 @@
 <template>
-    <div class="destinations">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="row">
-                    <div class="col-md-6">
-                        <h1>{{destination.name}}</h1>
-                        <GoBack />
-                        <img class="img-fluid" :src="`/images/${destination.image}`" alt="">
-                    </div>
-                    <div class="col-md-6">
-                        <p>{{destination.description.slice(0,420)}}</p>
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <GoBack />
+        <div class="card mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <img :src="`/images/${destination.image}`" class="img-fluid rounded-start" alt="...">
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <h5 class="card-title">{{destination.name}}</h5>
+                        <p class="card-text">{{destination.description.slice(0,420)}}</p>
                     </div>
                 </div>
-            </div>
+            </div>  
         </div>
     </div>
+</div>
     <div class="experence">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -22,7 +24,7 @@
                 <div class="row">
                     <div class="col-md-3" v-for="experience in destination.experiences"
                     :key="experience.slug">
-                    <router-link :to="{name:'experience',params:{experienceSlug:experience.slug}}">
+                    <router-link class="nav-link" :to="{name:'experience',params:{experienceSlug:experience.slug}}">
                     <Experence
                     :experience="experience"/>
                     </router-link>

@@ -18,6 +18,11 @@
           >{{destination.name}}
           </router-link>
         </li>
+        <li class="nav-item me-auto">
+          <router-link class="nav-link" to="/deshBoard">
+            DeshBord
+          </router-link>
+        </li>
       </ul>
     </div>
   </div>

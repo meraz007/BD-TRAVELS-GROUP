@@ -4,6 +4,7 @@ import Destinations from '../views/Destinations.vue'
 import ExperenceShow from '../components/ExperenceShow.vue'
 import NotFound from '../views/NotFound.vue'
 import SourceData from '@/data.json'
+import DeshBoard from '../views/DeshBorad.vue'
 
 
 const routes = [
@@ -28,6 +29,7 @@ const routes = [
     }
   ]
 },
+{path: '/deshBoard',name: 'DeshBoard',component: DeshBoard},
 {path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound},
   
 ]
